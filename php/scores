@@ -1,0 +1,42 @@
+<?php
+    // mostrarPuntuaciones.php
+    // Muestra las 10 mejores puntuaciones almacenadas en la
+    //Base de Datos
+
+    $hostBD = "localhost";
+    $usuarioBD = "root";
+    $passwordBD = "root";
+    $nombreBD = "records";
+
+    // conexion con la Base de Datos
+    if (! mysql_connect ($hostBD, $usuarioBD, $passwordBD)) {
+        echo "&resultado=noconexion";
+    } else {
+        mysql_select_db($nombreBD);
+    }
+    
+    // consulta para conseguir las 10 mejores puntuaciones
+    $consulta = "SELECT * FROM puntuaciones ORDER BY puntuacion DESC LIMIT    0, 10;";
+    $resultConsulta = mysql_query ($consulta);
+
+    // inicializar contador
+    $contador = 0;
+    // leer datos de la BD y salida de resultados
+    while ($fila = mysql_fetch_array ($resultConsulta)) {
+        $jugador = $fila ["jugador"];
+        $puntuacion = $fila ["puntuacion"];
+
+        //Salida de resultados como variables de la forma:
+        jugador0=nombre....jugdor9=otronombre
+        echo "&jugador$contador=$jugador";
+        echo "&puntuacion$contador=$puntuacion";
+        $contador++;
+    }
+
+    echo "&puntuacion$contador=$puntuacion";
+    &puntuacion3=2000
+
+    // Envio de informacion extra a flash
+    echo "&resultado=ok";
+    echo "&filas=$contador&";
+?>
