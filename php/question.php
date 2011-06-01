@@ -1,5 +1,5 @@
 <?php
-    $hostBD = "http://chico.inf-cr.uclm.es/mhrv/2008/phpMyAdmin/";
+    $hostBD = "chico.inf-cr.uclm.es";
     $usuarioBD = "mhrv";
     $passwordBD = "mhrvpass";
     $nombreBD = "mhrv";
