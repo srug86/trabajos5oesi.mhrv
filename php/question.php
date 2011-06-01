@@ -5,10 +5,7 @@
     srand (time());
     $numero_aleatorio = rand(1,51);
 
-    $consulta = "SELECT * FROM JMTT_SRGC_preguntas WHERE id = $numero_aleatorio";
-
-    $resultado = mysql_query($consulta);
-    echo "estado=cargado";
+    $consulta = "SELECT (question, a1, a2, a3, a4, correct) FROM JMTT_SRGC_preguntas WHERE id = $numero_aleatorio";
 
     $fila = mysql_fetch_array($resultado);
 
