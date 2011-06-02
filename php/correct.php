@@ -6,16 +6,14 @@
 
     $resultado = mysql_query($consultaUsuario) or die ("Error al realizar la consulta");
 
-    $nfilas = mysql_num_rows($resultado);
+    $fila = mysql_fetch_array($resultado);
 
-    if ($nfilas == 0) {
-        echo "&estado=correcto";
-        $consultaSQL = "INSERT INTO JMTT_SRGC_usuario(user, password) VALUES ('".$_REQUEST['txtUser']."','".$_REQUEST['txtPassword']."');";
+    $nueva_puntuacion = $fila['score'] + 10;
 
-        mysql_query($consultaSQL) or die ("Error al realizar la consulta");
-    }
-    else echo "&estado=incorrecto";
+    $consulta = "UPDATE JMTT_SRGC_usuario SET score = $nueva_puntuacion WHERE user = '".$_REQUEST['txtUser']."';";
+    mysql_query($consulta) or die ("Error al realizar la consulta");
+
+    echo "&nueva_puntuacion" . '=' . $nueva_puntuacion;
 
     mysql_close($conexion) or die ("Error al cerrar la conexión");
 ?>
-
