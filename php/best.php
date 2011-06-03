@@ -8,15 +8,10 @@
 
     $fila = mysql_fetch_array($resultado);
 
-    if ($fila['score'] > $fila['best']) {
-        echo "&nuevo_record=si";
-        $consulta = "UPDATE JMTT_SRGC_usuario SET best = '".$fila['score']."' WHERE user = '".$_REQUEST['txtUser']."';";
+    if ($_REQUEST['txtScore'] > $fila['best']) {
+        $consulta = "UPDATE JMTT_SRGC_usuario SET best = '".$_REQUEST['txtScore']."' WHERE user = '".$_REQUEST['txtUser']."';";
         mysql_query($consulta) or die ("Error al realizar la consulta");
     }
-    else echo "&nuevo_record=no";
-
-    echo "&puntuacion" . '=' . $fila['score'];
-    echo "&mejor" . '=' . $fila['best'];
 
     mysql_close($conexion) or die ("Error al cerrar la conexión");
 ?>
