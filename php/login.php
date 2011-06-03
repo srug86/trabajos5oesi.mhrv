@@ -8,7 +8,11 @@
 
     $nfilas = mysql_num_rows($resultado);
 
-    if ($nfilas == 1) echo "&estado=correcto";
+    if ($nfilas == 1) {
+        echo "&estado=correcto";
+        $consulta = "UPDATE JMTT_SRGC_usuario SET score = 0 WHERE user = '".$_REQUEST['txtUser']."';";
+        mysql_query($consulta) or die ("Error al realizar la consulta");
+    }
     else echo "&estado=incorrecto";
 
     mysql_close($conexion) or die ("Error al cerrar la conexión");
