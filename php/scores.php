@@ -11,7 +11,7 @@
         $jugador = $fila["user"];
         $puntuacion = $fila["best"];
 
-        echo "&jugador$contador=$jugador";
+        echo "jugador$contador=$jugador";
         echo "&puntuacion$contador=$puntuacion";
         $contador++;
     }

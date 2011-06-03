@@ -9,12 +9,12 @@
     $nfilas = mysql_num_rows($resultado);
 
     if ($nfilas == 0) {
-        echo "&estado=correcto";
+        echo "estado=correcto";
         $consultaSQL = "INSERT INTO JMTT_SRGC_usuario(user, password) VALUES ('".$_REQUEST['txtUser']."','".$_REQUEST['txtPassword']."');";
 
         mysql_query($consultaSQL) or die ("Error al realizar la consulta");
     }
-    else echo "&estado=incorrecto";
+    else echo "estado=incorrecto";
 
     mysql_close($conexion) or die ("Error al cerrar la conexión");
 ?>

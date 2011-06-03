@@ -11,7 +11,7 @@
 
     $fila = mysql_fetch_array($resultado);
 
-    echo "&pregunta" . '=' . $fila['question'];
+    echo "pregunta" . '=' . $fila['question'];
     echo "&respuesta1" . '=' . $fila['a1'];
     echo "&respuesta2" . '=' . $fila['a2'];
     echo "&respuesta3" . '=' . $fila['a3'];
