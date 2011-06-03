@@ -8,7 +8,7 @@
 
     $nfilas = mysql_num_rows($resultado);
 
-    if ($nfilas == 1) "estado=correcto";
+    if ($nfilas == 1) echo "estado=correcto";
     else echo "estado=incorrecto";
 
     mysql_close($conexion) or die ("Error al cerrar la conexión");
